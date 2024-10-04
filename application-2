@@ -1,0 +1,119 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const Yousaf());
+}
+
+class Yousaf extends StatelessWidget {
+  const Yousaf({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('LAB #3'),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            // Top section with an image and colored containers
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  // Red container
+                  Container(
+                    width: 300,
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                  // Blue container with an image inside
+                  Positioned(
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          'https://flutter.dev/assets/images/shared/brand/flutter/logo/flutter-lockup.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // Middle section with green and blue containers and numbered text
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Left Blue Container
+                Container(
+                  width: 100,
+                  height: 150,
+                  color: Colors.blue,
+                ),
+                const SizedBox(width: 20),
+                // Right Green Container with Numbers
+                Container(
+                  width: 100,
+                  height: 150,
+                  color: Colors.green,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(9, (index) {
+                        return Text(
+                          '${index + 1}',
+                          style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        );
+                      }),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 20),
+            // Text below the containers
+            const Text(
+              'PRACTICE MORE THAN THIS, IT WILL HELP YOU\nTO DESIGN COMPLEX MOBILE APP DESIGN',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16),
+            ),
+
+            const SizedBox(height: 20),
+            // Bottom Section with LEADING and TRAILING buttons
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('LEADING'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('TRAILING'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
